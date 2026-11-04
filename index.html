@@ -83,7 +83,7 @@ const SRC={DRH:decode('srcDRH'),AID:decode('srcAID')};
 const withInject=s=>{const i=s.indexOf('</head>');return i<0?INJECT+s:s.slice(0,i)+INJECT+s.slice(i)};
 let loaded=0;
 
-function load(k){const f=frames[k];f.onload=()=>{watch(k);if(++loaded>=2)document.getElementById('loading').style.display='none';sync()};f.srcdoc=withInject(SRC[k])}
+function load(k){const f=frames[k];f.onload=()=>{press(k,'zone','false');watch(k);if(++loaded>=2)document.getElementById('loading').style.display='none';sync()};f.srcdoc=withInject(SRC[k])}
 function doc(k){try{return frames[k].contentDocument}catch(e){return null}}
 
 /* 내부 패널 변화를 감시해 좌측 패널에 반영 */
